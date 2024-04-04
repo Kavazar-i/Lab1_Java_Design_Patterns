@@ -5,11 +5,14 @@ import com.kalosha.lab.shapes.creator.impl.OvalFactoryImpl;
 import com.kalosha.lab.shapes.model.oval.Oval;
 import com.kalosha.lab.shapes.model.Warehouse;
 import com.kalosha.lab.shapes.model.point.Point;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
 public class Main {
+    static Logger logger = Logger.getLogger(Main.class);
     public static void main(String[] args) {
+        logger.info("Пример сообщения для логирования.");
 //        TODO: Read the input from file
         int[][] params = {
                 {4, 5, 6, 7},
