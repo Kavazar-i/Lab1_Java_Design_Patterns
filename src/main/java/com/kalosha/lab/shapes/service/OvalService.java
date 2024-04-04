@@ -10,7 +10,20 @@ public class OvalService {
         Point pointB = oval.getPointB();
         double distanceByX = DistancesCalculator.distanceByXBetweenPoints(pointA, pointB);
         double distanceByY = DistancesCalculator.distanceByYBetweenPoints(pointA, pointB);
+
         double perimeter = 2 * Math.PI * Math.sqrt((Math.pow(distanceByX, 2) + Math.pow(distanceByY, 2)) / 8);
+
         return perimeter;
+    }
+
+    public double surface(Oval oval) {
+        Point pointA = oval.getPointA();
+        Point pointB = oval.getPointB();
+        double distanceByX = DistancesCalculator.distanceByXBetweenPoints(pointA, pointB);
+        double distanceByY = DistancesCalculator.distanceByYBetweenPoints(pointA, pointB);
+
+        double surface = Math.PI * distanceByX * distanceByY;
+
+        return surface;
     }
 }
