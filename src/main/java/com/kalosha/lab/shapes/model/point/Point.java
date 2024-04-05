@@ -1,12 +1,20 @@
 package com.kalosha.lab.shapes.model.point;
 
+import com.kalosha.lab.shapes.util.IdGenerator;
+
 public class Point {
+    private int pointId;
     private double x;
     private double y;
 
     public Point(double x, double y) {
+        pointId = IdGenerator.increment();
         this.x = x;
         this.y = y;
+    }
+
+    public int getPointId() {
+        return pointId;
     }
 
     public double getX() {
@@ -31,18 +39,24 @@ public class Point {
         if (o == null || getClass() != o.getClass()) return false;
 
         Point point = (Point) o;
-        return Double.compare(x, point.x) == 0 && Double.compare(y, point.y) == 0;
+        return pointId == point.pointId && Double.compare(x, point.x) == 0 && Double.compare(y, point.y) == 0;
     }
 
     @Override
     public int hashCode() {
-        int result = Double.hashCode(x);
+        int result = pointId;
+        result = 31 * result + Double.hashCode(x);
         result = 31 * result + Double.hashCode(y);
+
         return result;
     }
 
     @Override
     public String toString() {
-        return "(" + x + ", " + y + ")";
+        return "Point{" +
+                "pointId=" + pointId +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

@@ -6,5 +6,7 @@ import com.kalosha.lab.shapes.model.point.Point;
 import java.util.List;
 
 public interface PointFactory {
-    List<Point> createPoints(int[][] sides);
+    List<Point> createPoints(List<Double> coordinates);
+
+    Point createPoint(List<Double> coordinates);
 }
