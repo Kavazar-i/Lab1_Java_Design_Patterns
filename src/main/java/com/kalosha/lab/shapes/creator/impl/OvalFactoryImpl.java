@@ -1,25 +1,97 @@
 package com.kalosha.lab.shapes.creator.impl;
 
 import com.kalosha.lab.shapes.creator.OvalFactory;
+import com.kalosha.lab.shapes.exeption.IncorrectOvalException;
 import com.kalosha.lab.shapes.model.oval.Oval;
 import com.kalosha.lab.shapes.model.oval.OvalState;
 import com.kalosha.lab.shapes.model.point.Point;
+import com.kalosha.lab.shapes.reader.AdapterOvalFileReader;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OvalFactoryImpl implements OvalFactory {
+    Logger logger = Logger.getLogger(OvalFactoryImpl.class.getName());
+
     @Override
-    public List<Oval> createOvals(int[][] sides) {
-        List<Oval> newOvals = new ArrayList<>();
-        for (int[] current : sides) {
-            Point pointA = new Point(current[0], current[1]);
-            Point pointB = new Point(current[2], current[3]);
-            Oval oval = new Oval(pointA, pointB);
-            OvalState currentState = OvalState.detect(oval);
-            oval.setState(currentState);
-            newOvals.add(oval);
+    public List<Oval> createOvals(List<Point> points) throws IncorrectOvalException {
+        List<Oval> ovals = new ArrayList<>();
+
+        if (points.size() % 2 != 0) {
+            logger.warn("Coordinates array must contain even number of elements, last point will be ignored");
+            points.remove(points.size() - 1);
         }
-        return newOvals;
+
+        for (int i = 0; i < points.size(); i += 2) {
+            Oval oval = new Oval();
+            oval.setPointA(points.get(i));
+            oval.setPointB(points.get(i + 1));
+            oval.setState(OvalState.detect(oval));
+
+            if (OvalState.detect(oval) != OvalState.INVALID) {
+                ovals.add(oval);
+            } else {
+                logger.error(String.format("Incorrect oval ignored: %s", oval));
+            }
+        }
+
+        return ovals;
+    }
+
+    @Override
+    public Oval createOval(List<Point> points) throws IncorrectOvalException {
+        if (points.size() < 2) {
+            logger.error("Coordinates array must contain at least 2 elements");
+            throw new IncorrectOvalException("Coordinates array must contain at least 2 elements");
+        }
+
+        if (points.size() > 2) {
+            logger.warn("Coordinates array must contain 2 elements,others will be ignored");
+        }
+
+        Oval oval = new Oval();
+        oval.setPointA(points.get(0));
+        oval.setPointB(points.get(1));
+        oval.setState(OvalState.detect(oval));
+
+        if (OvalState.detect(oval) == OvalState.INVALID) {
+            logger.error(String.format("Incorrect oval ignored: %s", oval));
+            throw new IncorrectOvalException("Incorrect oval ignored");
+        }
+
+        return oval;
+    }
+
+    @Override
+    public Oval createOvalBySides(double sideA, double sideB) throws IncorrectOvalException {
+        if (sideA <= 0 || sideB <= 0) {
+            logger.error("Sides must be positive");
+            throw new IncorrectOvalException("Sides must be positive");
+        }
+
+        Oval oval = new Oval(new Point(0, 0), new Point(sideA, sideB));
+        oval.setState(OvalState.detect(oval));
+
+        return oval;
+    }
+
+    @Override
+    public List<Oval> createOvalsFromFile(String filePath) throws IncorrectOvalException {
+        List<Oval> ovals = new ArrayList<>();
+        List<List<Point>> coordinates = AdapterOvalFileReader.parseCoordinates(filePath);
+
+        for (List<Point> coordinateCube : coordinates) {
+            Oval oval = createOval(coordinateCube);
+
+            if (OvalState.detect(oval) != OvalState.INVALID) {
+                ovals.add(oval);
+            } else {
+                logger.error(String.format("Incorrect oval ignored: %s", oval));
+                throw new IncorrectOvalException("Incorrect oval ignored");
+            }
+        }
+
+        return ovals;
     }
 }

@@ -1,41 +1,42 @@
 package com.kalosha.lab.shapes.reader;
 
 import com.kalosha.lab.shapes.model.point.Point;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 public class AdapterOvalFileReader {
     private static final Logger logger = Logger.getLogger(AdapterOvalFileReader.class.getName());
 
-    private static final int NUMBER_OF_COORDINATES = 2;
+    private static final int NUMBER_OF_COORDINATES = 4;
     private static final int DIMENSION_OF_SPACE = 2;
-    private static final String LINES_DELIMITER = "; ";
-    private static final String VALUES_DELIMITER = ",";
+    private static final String LINES_DELIMITER = ";";
+    private static final String VALUES_DELIMITER = ", ";
 
-    public static List<Point[]> parseCoordinates(String filePath) {
-        List<Point[]> parsedCoordinates = new ArrayList<>();
+    public static List<List<Point>> parseCoordinates(String filePath) {
+        List<List<Point>> parsedCoordinates = new ArrayList<>();
 
-        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(Paths.get(Objects.requireNonNull(AdapterOvalFileReader.class.getResource(filePath)).toURI()).toUri()));
             lines.forEach(line -> {
-                String[] stringCoordinates = line.split(LINES_DELIMITER);
+                if (!line.isEmpty()) {
+                    List<Point> coordinates = new ArrayList<>();
 
-                if (stringCoordinates.length == NUMBER_OF_COORDINATES) {
-                    Point[] coordinates = new Point[NUMBER_OF_COORDINATES];
+                    String[] xy = line.split(VALUES_DELIMITER);
 
-                    for (int j = 0; j < NUMBER_OF_COORDINATES; j++) {
-                        String[] xy = stringCoordinates[j].split(VALUES_DELIMITER);
+                    for (int j = 0; j < DIMENSION_OF_SPACE; j++) {
 
-                        if (xy.length == DIMENSION_OF_SPACE) {
+                        if (xy.length == NUMBER_OF_COORDINATES) {
                             try {
-                                double x = Double.parseDouble(xy[0]);
-                                double y = Double.parseDouble(xy[1]);
-                                coordinates[j] = new Point(x, y);
+                                double x = Double.parseDouble(xy[0 + 2 * j]);
+                                double y = Double.parseDouble(xy[1 + 2 * j]);
+                                coordinates.add(new Point(x, y));
                             } catch (NumberFormatException e) {
                                 logger.log(Level.WARNING, "Error parsing coordinates: " + e.getMessage());
                             }
@@ -44,7 +45,7 @@ public class AdapterOvalFileReader {
                         }
                     }
 
-                    if (coordinates[0] != null && coordinates[1] != null) {
+                    if (coordinates.get(0) != null && coordinates.get(1) != null) {
                         parsedCoordinates.add(coordinates);
                     }
                 } else {
@@ -53,6 +54,8 @@ public class AdapterOvalFileReader {
             });
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Error reading file: " + e.getMessage(), e);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error parsing coordinates: " + e.getMessage(), e);
         }
 
         return parsedCoordinates;

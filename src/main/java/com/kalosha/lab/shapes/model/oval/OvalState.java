@@ -12,6 +12,7 @@ public enum OvalState {
     public static OvalState detect(Oval oval) {
         Point pointA = oval.getPointA();
         Point pointB = oval.getPointB();
+
         if (pointA == null || pointB == null) {
             throw new IllegalArgumentException("All points must be provided");
         }
@@ -27,14 +28,4 @@ public enum OvalState {
             return CIRCULAR;
         }
     }
-
-//    private static double distanceByXBetweenPoints(Point pointA, Point pointB) {
-//        double dx = pointA.getX() - pointB.getX();
-//        return Math.abs(dx);
-//    }
-//
-//    private static double distanceByYBetweenPoints(Point pointA, Point pointB) {
-//        double dy = pointA.getY() - pointB.getY();
-//        return Math.abs(dy);
-//    }
 }
