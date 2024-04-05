@@ -1,16 +1,21 @@
 package com.kalosha.lab.shapes.model.point;
 
 import com.kalosha.lab.shapes.util.IdGenerator;
+import org.apache.log4j.Logger;
 
 public class Point {
     private int pointId;
     private double x;
     private double y;
 
+    Logger logger = Logger.getLogger(Point.class.getName());
+
     public Point(double x, double y) {
         pointId = IdGenerator.increment();
         this.x = x;
         this.y = y;
+
+        logger.info(String.format("Created a Point with id: %d, x: %f, y: %f", pointId, x, y));
     }
 
     public int getPointId() {

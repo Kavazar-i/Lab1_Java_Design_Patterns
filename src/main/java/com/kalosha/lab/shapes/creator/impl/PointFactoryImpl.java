@@ -28,11 +28,30 @@ public class PointFactoryImpl implements PointFactory {
             newPoints.add(new Point(coordinates.get(i - 1), coordinates.get(i)));
         }
 
+        logger.info(String.format("Points created: %s", newPoints));
         return newPoints;
     }
 
     @Override
     public Point createPoint(List<Double> coordinates) {
-        return null;
+        if (coordinates.size() != 2) {
+            logger.error("Coordinates array must contain 2 elements");
+            throw new IllegalArgumentException("Coordinates array must contain even number of elements");
+        }
+
+        Point point = new Point(coordinates.get(0), coordinates.get(1));
+        logger.info(String.format("Point created: %s", point));
+        return point;
+    }
+
+    public Point createPoint(Double x, Double y) {
+        if (x == null || y == null) {
+            logger.error("Coordinates must not be null");
+            throw new IllegalArgumentException("Coordinates must not be null");
+        }
+
+        Point point = new Point(x, y);
+        logger.info(String.format("Point created: %s", point));
+        return point;
     }
 }

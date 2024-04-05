@@ -9,4 +9,5 @@ public interface PointFactory {
     List<Point> createPoints(List<Double> coordinates);
 
     Point createPoint(List<Double> coordinates);
+    Point createPoint(Double x, Double y);
 }

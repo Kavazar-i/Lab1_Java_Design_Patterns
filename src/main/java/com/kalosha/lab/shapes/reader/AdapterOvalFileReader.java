@@ -1,5 +1,7 @@
 package com.kalosha.lab.shapes.reader;
 
+import com.kalosha.lab.shapes.creator.PointFactory;
+import com.kalosha.lab.shapes.creator.impl.PointFactoryImpl;
 import com.kalosha.lab.shapes.model.point.Point;
 
 import java.io.IOException;
@@ -8,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AdapterOvalFileReader {
@@ -36,9 +37,10 @@ public class AdapterOvalFileReader {
                             try {
                                 double x = Double.parseDouble(xy[0 + 2 * j]);
                                 double y = Double.parseDouble(xy[1 + 2 * j]);
-                                coordinates.add(new Point(x, y));
+                                PointFactory pointFactory = new PointFactoryImpl();
+                                coordinates.add(pointFactory.createPoint(x, y));
                             } catch (NumberFormatException e) {
-                                logger.log(Level.WARNING, "Error parsing coordinates: " + e.getMessage());
+                                logger.warning("Error parsing coordinates: " + e.getMessage());
                             }
                         } else {
                             logger.warning("Incorrect number of values for coordinates.");
@@ -53,9 +55,9 @@ public class AdapterOvalFileReader {
                 }
             });
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "Error reading file: " + e.getMessage(), e);
+            logger.severe("Error reading file: " + e);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error parsing coordinates: " + e.getMessage(), e);
+            logger.severe("Error parsing coordinates: " + e);
         }
 
         return parsedCoordinates;

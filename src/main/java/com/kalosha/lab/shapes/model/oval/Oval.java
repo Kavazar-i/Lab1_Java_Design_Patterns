@@ -1,5 +1,7 @@
 package com.kalosha.lab.shapes.model.oval;
 
+import com.kalosha.lab.shapes.creator.PointFactory;
+import com.kalosha.lab.shapes.creator.impl.PointFactoryImpl;
 import com.kalosha.lab.shapes.exeption.IncorrectPointException;
 import com.kalosha.lab.shapes.model.point.Point;
 import com.kalosha.lab.shapes.observer.Observable;
@@ -56,8 +58,9 @@ public class Oval implements Observable {
     public Oval(List<Double> coordinates) throws IncorrectPointException {
         if (coordinates.size() == 4) {
             ovalId = IdGenerator.increment();
-            this.pointA = new Point(coordinates.get(0), coordinates.get(1));
-            this.pointB = new Point(coordinates.get(2), coordinates.get(3));
+            PointFactory pointFactory = new PointFactoryImpl();
+            this.pointA = pointFactory.createPoint(coordinates.get(0), coordinates.get(1));
+            this.pointB = pointFactory.createPoint(coordinates.get(2), coordinates.get(3));
 
             logger.info("Created an Oval from doubles");
         } else {
@@ -79,6 +82,7 @@ public class Oval implements Observable {
             this.pointA = pointA;
         }
 
+        logger.info(String.format("Set pointA to %s", pointA));
         notifyObservers();
     }
 
@@ -91,6 +95,7 @@ public class Oval implements Observable {
             this.pointB = pointB;
         }
 
+        logger.info(String.format("Set pointB to %s", pointB));
         notifyObservers();
     }
 
@@ -103,6 +108,7 @@ public class Oval implements Observable {
             this.state = state;
         }
 
+        logger.info(String.format("Set state to %s", state));
         notifyObservers();
     }
 
@@ -155,5 +161,6 @@ public class Oval implements Observable {
         if (observer != null) {
             observer.update(this);
         }
+        logger.info("Observers notified");
     }
 }

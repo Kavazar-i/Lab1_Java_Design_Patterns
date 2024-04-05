@@ -1,6 +1,7 @@
 package com.kalosha.lab.shapes.creator.impl;
 
 import com.kalosha.lab.shapes.creator.OvalFactory;
+import com.kalosha.lab.shapes.creator.PointFactory;
 import com.kalosha.lab.shapes.exeption.IncorrectOvalException;
 import com.kalosha.lab.shapes.model.oval.Oval;
 import com.kalosha.lab.shapes.model.oval.OvalState;
@@ -35,7 +36,7 @@ public class OvalFactoryImpl implements OvalFactory {
                 logger.error(String.format("Incorrect oval ignored: %s", oval));
             }
         }
-
+        logger.info(String.format("Ovals created: %s", ovals));
         return ovals;
     }
 
@@ -60,6 +61,7 @@ public class OvalFactoryImpl implements OvalFactory {
             throw new IncorrectOvalException("Incorrect oval ignored");
         }
 
+        logger.info(String.format("Oval created: %s", oval));
         return oval;
     }
 
@@ -70,9 +72,11 @@ public class OvalFactoryImpl implements OvalFactory {
             throw new IncorrectOvalException("Sides must be positive");
         }
 
-        Oval oval = new Oval(new Point(0, 0), new Point(sideA, sideB));
+        PointFactory pointFactory = new PointFactoryImpl();
+        Oval oval = new Oval(pointFactory.createPoint(0., 0.), pointFactory.createPoint(sideA, sideB));
         oval.setState(OvalState.detect(oval));
 
+        logger.info(String.format("Created oval by sides: %s", oval));
         return oval;
     }
 
@@ -92,6 +96,7 @@ public class OvalFactoryImpl implements OvalFactory {
             }
         }
 
+        logger.info(String.format("Ovals created from file: %s", ovals));
         return ovals;
     }
 }
