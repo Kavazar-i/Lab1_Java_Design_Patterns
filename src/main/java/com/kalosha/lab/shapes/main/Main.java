@@ -1,33 +1,50 @@
 package com.kalosha.lab.shapes.main;
 
 import com.kalosha.lab.shapes.creator.OvalFactory;
+import com.kalosha.lab.shapes.creator.PointFactory;
 import com.kalosha.lab.shapes.creator.impl.OvalFactoryImpl;
-import com.kalosha.lab.shapes.model.oval.Oval;
+import com.kalosha.lab.shapes.creator.impl.PointFactoryImpl;
+import com.kalosha.lab.shapes.exeption.IncorrectOvalException;
 import com.kalosha.lab.shapes.model.Warehouse;
+import com.kalosha.lab.shapes.model.oval.Oval;
 import com.kalosha.lab.shapes.model.point.Point;
+import com.kalosha.lab.shapes.service.OvalService;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    static Logger logger = Logger.getLogger(Main.class);
-    public static void main(String[] args) {
-        logger.info("Пример сообщения для логирования.");
-//        TODO: Read the input from file
-        int[][] params = {
-                {4, 5, 6, 7},
-                {1, 1, 7,7},
-                {8, 9, 9, 15},
-                {7, 5, 4, 0},
+    static Logger logger = Logger.getLogger(Main.class.getName());
+
+    public static void main(String[] args) throws IncorrectOvalException {
+        logger.info("Application started");
+
+        List<Point> params = new ArrayList<Point>() {
+            {
+                add(new Point(1, 1));
+                add(new Point(-2.7, 2));
+                add(new Point(3.0, 6));
+                add(new Point(4, 4));
+            }
         };
+
         OvalFactory factory = new OvalFactoryImpl();
+        OvalService service = new OvalService();
+        PointFactory pointFactory = new PointFactoryImpl();
+//        List<Point> points = pointFactory.createPoints(params);
         List<Oval> result = factory.createOvals(params);
         System.out.println(result);
         Warehouse warehouse = Warehouse.getInstance();
-        Oval ob = result.get(0);
-        ob.setPointA(new Point(1, 1));
+        Oval oval = result.get(0);
+        oval.setPointA(new Point(10, 0));
         System.out.println(warehouse);
-        ob.setPointB(new Point(2, 2));
+        oval.setPointB(new Point(0, 10));
         System.out.println(warehouse);
+
+        List<Oval> ovalsCorrect = factory.createOvalsFromFile("/correct_ovals.txt");
+        System.out.println(ovalsCorrect);
+        List<Oval> ovalsMixed = factory.createOvalsFromFile("/mixed_ovals.txt");
+        System.out.println(ovalsMixed);
     }
 }

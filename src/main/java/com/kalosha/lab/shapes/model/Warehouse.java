@@ -1,11 +1,13 @@
 package com.kalosha.lab.shapes.model;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 import java.util.StringJoiner;
 
 public class Warehouse {
     private static Warehouse instance = new Warehouse();
-    private HashMap<Integer, Double> map = new HashMap<>();
+    private HashMap<Integer, List<Double>> map = new HashMap<>();
 
     private Warehouse() {
     }
@@ -14,12 +16,12 @@ public class Warehouse {
         return instance;
     }
 
-    public Double get(Integer key) {
+    public List<Double> get(Integer key) {
         return map.get(key);
     }
 
-    public Double put(Integer key, Double value) {
-        return map.put(key, value);
+    public List<Double> put(Integer key, List<Double> values) {
+        return map.put(key, values);
     }
 
     @Override
