@@ -1,0 +1,108 @@
+2024-05-16 12:46:30 INFO  Main:20 - Application started
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 1, x: 1.000000, y: 1.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=1, x=1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 2, x: -2.700000, y: 2.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=2, x=-2.7, y=2.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 3, x: 3.000000, y: 6.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=3, x=3.0, y=6.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 4, x: 4.000000, y: 4.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=4, x=4.0, y=4.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 6, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 7, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 5, pointA: Point{pointId=6, x=0.0, y=0.0}, pointB: Point{pointId=7, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=1, x=1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=2, x=-2.7, y=2.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 9, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 10, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 8, pointA: Point{pointId=9, x=0.0, y=0.0}, pointB: Point{pointId=10, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=3, x=3.0, y=6.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=4, x=4.0, y=4.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:39 - Ovals created: [Oval[id=5, pointA=Point{pointId=1, x=1.0, y=1.0}, pointB=Point{pointId=2, x=-2.7, y=2.0}, state=REGULAR], Oval[id=8, pointA=Point{pointId=3, x=3.0, y=6.0}, pointB=Point{pointId=4, x=4.0, y=4.0}, state=REGULAR]]
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 11, x: 10.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=11, x=10.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=11, x=10.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 12, x: 0.000000, y: 10.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=12, x=0.0, y=10.0}
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=12, x=0.0, y=10.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 13, x: 1.000000, y: 1.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=13, x=1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 14, x: 2.000000, y: 2.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=14, x=2.0, y=2.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 15, x: -1.000000, y: 2.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=15, x=-1.0, y=2.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 16, x: 6.000000, y: 8.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=16, x=6.0, y=8.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 17, x: 1.000000, y: 3.500000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=17, x=1.0, y=3.5}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 18, x: 24.000000, y: -48.800000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=18, x=24.0, y=-48.8}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 19, x: 120.000000, y: 384.600000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=19, x=120.0, y=384.6}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 20, x: 1.200000, y: 4.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=20, x=1.2, y=4.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 22, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 23, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 21, pointA: Point{pointId=22, x=0.0, y=0.0}, pointB: Point{pointId=23, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=13, x=1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=14, x=2.0, y=2.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to CIRCULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:64 - Oval created: Oval[id=21, pointA=Point{pointId=13, x=1.0, y=1.0}, pointB=Point{pointId=14, x=2.0, y=2.0}, state=CIRCULAR]
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 25, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 26, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 24, pointA: Point{pointId=25, x=0.0, y=0.0}, pointB: Point{pointId=26, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=15, x=-1.0, y=2.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=16, x=6.0, y=8.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:64 - Oval created: Oval[id=24, pointA=Point{pointId=15, x=-1.0, y=2.0}, pointB=Point{pointId=16, x=6.0, y=8.0}, state=REGULAR]
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 28, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 29, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 27, pointA: Point{pointId=28, x=0.0, y=0.0}, pointB: Point{pointId=29, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=17, x=1.0, y=3.5}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=18, x=24.0, y=-48.8}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:64 - Oval created: Oval[id=27, pointA=Point{pointId=17, x=1.0, y=3.5}, pointB=Point{pointId=18, x=24.0, y=-48.8}, state=REGULAR]
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 31, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 32, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 30, pointA: Point{pointId=31, x=0.0, y=0.0}, pointB: Point{pointId=32, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=19, x=120.0, y=384.6}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=20, x=1.2, y=4.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:64 - Oval created: Oval[id=30, pointA=Point{pointId=19, x=120.0, y=384.6}, pointB=Point{pointId=20, x=1.2, y=4.0}, state=REGULAR]
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:99 - Ovals created from file: [Oval[id=21, pointA=Point{pointId=13, x=1.0, y=1.0}, pointB=Point{pointId=14, x=2.0, y=2.0}, state=CIRCULAR], Oval[id=24, pointA=Point{pointId=15, x=-1.0, y=2.0}, pointB=Point{pointId=16, x=6.0, y=8.0}, state=REGULAR], Oval[id=27, pointA=Point{pointId=17, x=1.0, y=3.5}, pointB=Point{pointId=18, x=24.0, y=-48.8}, state=REGULAR], Oval[id=30, pointA=Point{pointId=19, x=120.0, y=384.6}, pointB=Point{pointId=20, x=1.2, y=4.0}, state=REGULAR]]
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 33, x: -1.000000, y: 1.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=33, x=-1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 34, x: 2.000000, y: 2.000000
+2024-05-16 12:46:30 INFO  PointFactoryImpl:54 - Point created: Point{pointId=34, x=2.0, y=2.0}
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 36, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Point:18 - Created a Point with id: 37, x: 0.000000, y: 0.000000
+2024-05-16 12:46:30 INFO  Oval:32 - Created a Oval with id: 35, pointA: Point{pointId=36, x=0.0, y=0.0}, pointB: Point{pointId=37, x=0.0, y=0.0}
+2024-05-16 12:46:30 INFO  Oval:85 - Set pointA to Point{pointId=33, x=-1.0, y=1.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:98 - Set pointB to Point{pointId=34, x=2.0, y=2.0}
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  Oval:111 - Set state to REGULAR
+2024-05-16 12:46:30 INFO  Oval:164 - Observers notified
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:64 - Oval created: Oval[id=35, pointA=Point{pointId=33, x=-1.0, y=1.0}, pointB=Point{pointId=34, x=2.0, y=2.0}, state=REGULAR]
+2024-05-16 12:46:30 INFO  OvalFactoryImpl:99 - Ovals created from file: [Oval[id=35, pointA=Point{pointId=33, x=-1.0, y=1.0}, pointB=Point{pointId=34, x=2.0, y=2.0}, state=REGULAR]]
