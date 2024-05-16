@@ -17,7 +17,6 @@ public class AdapterOvalFileReader {
 
     private static final int NUMBER_OF_COORDINATES = 4;
     private static final int DIMENSION_OF_SPACE = 2;
-    private static final String LINES_DELIMITER = ";";
     private static final String VALUES_DELIMITER = ", ";
 
     public static List<List<Point>> parseCoordinates(String filePath) {
@@ -35,7 +34,7 @@ public class AdapterOvalFileReader {
 
                         if (xy.length == NUMBER_OF_COORDINATES) {
                             try {
-                                double x = Double.parseDouble(xy[0 + 2 * j]);
+                                double x = Double.parseDouble(xy[2 * j]);
                                 double y = Double.parseDouble(xy[1 + 2 * j]);
                                 PointFactory pointFactory = new PointFactoryImpl();
                                 coordinates.add(pointFactory.createPoint(x, y));

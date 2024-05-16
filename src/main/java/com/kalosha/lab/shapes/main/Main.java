@@ -18,7 +18,6 @@ public class Main {
 
     public static void main(String[] args) throws IncorrectOvalException {
         logger.info("Application started");
-
         PointFactory pointFactory = new PointFactoryImpl();
         List<Point> params = new ArrayList<Point>() {
             {

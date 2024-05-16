@@ -2,7 +2,6 @@ package com.kalosha.lab.shapes.model;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 import java.util.StringJoiner;
 
 public class Warehouse {

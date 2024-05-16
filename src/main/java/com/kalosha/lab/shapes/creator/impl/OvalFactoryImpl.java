@@ -16,7 +16,7 @@ public class OvalFactoryImpl implements OvalFactory {
     Logger logger = Logger.getLogger(OvalFactoryImpl.class.getName());
 
     @Override
-    public List<Oval> createOvals(List<Point> points) throws IncorrectOvalException {
+    public List<Oval> createOvals(List<Point> points) {
         List<Oval> ovals = new ArrayList<>();
 
         if (points.size() % 2 != 0) {
