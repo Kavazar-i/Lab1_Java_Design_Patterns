@@ -123,7 +123,7 @@ public class Oval implements Observable {
         }
 
         Oval oval = (Oval) o;
-        return ovalId == oval.ovalId && pointA.equals(oval.pointA) && pointB.equals(oval.pointB) && state == oval.state;
+        return (pointA.equals(oval.pointA) && pointB.equals(oval.pointB)) || (pointA.equals(oval.pointB) && pointB.equals(oval.pointA)) && state == oval.state;
     }
 
     @Override

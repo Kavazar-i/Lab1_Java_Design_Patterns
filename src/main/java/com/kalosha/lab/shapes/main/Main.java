@@ -39,8 +39,8 @@ public class Main {
         System.out.println(warehouse);
 
         List<Oval> ovalsCorrect = factory.createOvalsFromFile("/correct_ovals.txt");
-        System.out.println(ovalsCorrect);
+        logger.info(ovalsCorrect);
         List<Oval> ovalsMixed = factory.createOvalsFromFile("/mixed_ovals.txt");
-        System.out.println(ovalsMixed);
+        logger.info(ovalsMixed);
     }
 }
